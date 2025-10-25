@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aplicación del Clima ☀️
 
-## Getting Started
+Una aplicación web desarrollada con Next.js que permite a los usuarios consultar el clima actual de cualquier ciudad del mundo utilizando la API de OpenWeatherMap.
 
-First, run the development server:
+
+## Tecnologías Utilizadas
+
+- **Next.js 16** - Framework de React
+- **TypeScript** - Tipado estático
+- **Tailwind CSS** - Estilos modernos
+- **Jest** - Framework de pruebas
+- **React Testing Library** - Pruebas de componentes
+- **OpenWeatherMap API** - Datos meteorológicos
+
+## Requisitos Previos
+
+- Node.js 18.x o superior
+- npm o yarn
+
+## Instalación
+
+1. Clona el repositorio:
+```bash
+git clone https://github.com/Gaitan19/Prueba-Conocimiento-Frontend-Gaitan.git
+cd Prueba-Conocimiento-Frontend-Gaitan
+
+```
+
+2. Instala las dependencias:
+```bash
+npm install
+```
+
+3. Configura las variables de entorno:
+
+Crea un archivo `.env.local` en la raíz del proyecto con las siguientes variables:
+
+```env
+NEXT_PUBLIC_OPENWEATHER_API_KEY=tu_api_key_aqui
+NEXT_PUBLIC_OPENWEATHER_BASE_URL=https://api.openweathermap.org/data/2.5/weather
+```
+
+Para obtener una API key gratuita, visita: https://openweathermap.org/api
+
+## Uso
+
+### Modo de Desarrollo
+
+Ejecuta el servidor de desarrollo:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Pruebas
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Ejecutar todas las pruebas:
+```bash
+npm test
+```
 
-## Learn More
+### Ejecutar pruebas en modo watch:
+```bash
+npm run test:watch
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Ver reporte de cobertura:
+```bash
+npm run test:coverage
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+La aplicación cuenta con más del 85% de cobertura en branches, functions, lines y statements.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Estructura del Proyecto
 
-## Deploy on Vercel
+```
+.
+├── app/
+│   ├── components/          # Componentes reutilizables
+│   │   ├── SearchInput.tsx  # Campo de búsqueda
+│   │   ├── WeatherDisplay.tsx # Visualización del clima
+│   │   └── ErrorMessage.tsx # Mensajes de error
+│   ├── services/            # Servicios API
+│   │   └── weatherService.ts # Servicio de clima
+│   ├── types/               # Definiciones TypeScript
+│   │   └── weather.ts       # Tipos de datos del clima
+│   ├── layout.tsx           # Layout principal
+│   ├── page.tsx             # Página principal
+│   └── globals.css          # Estilos globales
+├── __tests__/               # Pruebas unitarias
+│   ├── components/          # Tests de componentes
+│   ├── services/            # Tests de servicios
+│   └── page.test.tsx        # Tests de la página principal
+├── jest.config.mjs          # Configuración de Jest
+├── jest.setup.js            # Setup de Jest
+└── next.config.ts           # Configuración de Next.js
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Funcionalidades Implementadas
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 1. Interfaz de Usuario
+- ✅ Campo de entrada para el nombre de la ciudad
+- ✅ Botón de búsqueda con estados de carga
+- ✅ Visualización de:
+  - Temperatura actual
+  - Sensación térmica
+  - Humedad
+  - Velocidad del viento
+  - Temperaturas mínima y máxima
+
+### 2. Funcionalidades
+- ✅ Búsqueda de clima por ciudad
+- ✅ Manejo de errores (ciudad no encontrada, problemas de red)
+- ✅ Validación de entrada
+- ✅ Integración con OpenWeatherMap API
+
+### 3. Pruebas Unitarias
+- ✅ Pruebas de componentes individuales
+- ✅ Pruebas del servicio de API
+- ✅ Pruebas de integración de la página principal
+- ✅ Pruebas de manejo de errores
+- ✅ Cobertura superior al 80%
